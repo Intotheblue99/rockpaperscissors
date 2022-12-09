@@ -1,7 +1,8 @@
 let selection = ['rock', 'paper', 'scissors']
 let computer = getComputerChoice()
-let playerChoice = 'paper'
-let player = playerChoice
+let player = getPlayerChoice()
+//let playerChoice = 'paper'
+//let player = playerChoice
 
 console.log('ME: ' + player)
 console.log('CPU: ' + computer)
@@ -9,6 +10,12 @@ console.log('CPU: ' + computer)
 function getComputerChoice() {
     let comCho = Math.floor(Math.random() * selection.length)
     return selection[comCho]
+}
+
+// temporary//
+function getPlayerChoice() {
+    let plaCho = Math.floor(Math.random() * selection.length)
+    return selection[plaCho]
 }
 
 
