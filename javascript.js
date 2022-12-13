@@ -1,10 +1,9 @@
 let selection = ['rock', 'paper', 'scissors']
-let computer = getComputerChoice()
-let player = prompt()
+let choices = []
 let playerScore = 0
 let cpuScore = 0
-let cpuWin = false
-let playerWin = false
+let round = ''
+let gameWinner = ''
 //let playerChoice = 'paper'
 //let player = playerChoice
 
@@ -19,62 +18,65 @@ function getComputerChoice() {
 }
 
 // temporary//
-// function getPlayerChoice() {
-//     let plaCho = Math.floor(Math.random() * selection.length)
-//     return selection[plaCho]
-// }
+ function getPlayerChoice() {
+     let plaCho = Math.floor(Math.random() * selection.length)
+     return selection[plaCho]
+ }
 
 
-function playRound(player, computer) {
+function playRound() {
+    
     if (player === 'rock' && computer === 'paper') {
-        cpuWin = true
+        cpuScore++
         return 'you lose, paper covers rock';
         
-    } else if (player === 'paper' && computer === 'scissors') {
-        cpuWin = true
+    }  if (player === 'paper' && computer === 'scissors') {
+        cpuScore++
         return 'you lose, scissors cuts paper';
-        //cpuWin = true
-    } else if ( player === 'scissors' && computer === 'rock') {
-        cpuWin = true
+        
+    } if ( player === 'scissors' && computer === 'rock') {
+        cpuScore++
         return 'you lose, rock crushes scissors';
-        //cpuWin = true
-    } else if (player === 'rock' && computer === 'scissors') {
-        playerWin = true
+        
+    } if (player === 'rock' && computer === 'scissors') {
+        playerScore++
         return 'YOU WIN! rock crushes scissors';
-        //playerWin = true
-    } else if (player === 'paper' && computer === 'rock') {
-        playerWin = true
+        
+    } if (player === 'paper' && computer === 'rock') {
+        playerScore++
         return 'YOU WIN! paper covers rock';
-        //playerWin = true
-    } else if (player === 'scissors' && computer === 'paper') {
-        playerWin = true
+        
+    } if (player === 'scissors' && computer === 'paper') {
+        playerScore++
         return 'YOU WIN! scissors cuts paper';
-        //playerWin = true
-    } else if (player === 'rock' && computer === 'rock') {
+        
+    } if (player === 'rock' && computer === 'rock') {
         return 'DRAW: rock & rock'
-    } else if (player === 'paper' && computer === 'paper') {
+    } if (player === 'paper' && computer === 'paper') {
         return 'DRAW: paper & paper'
-    } else if (player === 'scissors' && computer === 'scissors') {
+    } if (player === 'scissors' && computer === 'scissors') {
         return 'DRAW: scissors & scissors'
     }
 }
 
-console.log(playRound(player, computer))
+console.log(playRound())
 
 function game() {
-    playRound()
     for (i = 0; i < 5; i++) {
         playRound(i)
-        prompt()
-        if (playerWin === true) {
-            console.log('round ' + [i] + ': WIN')
-        } else {
-            console.log('round ' + [i] + ': LOSS')
-        }
-        
-   }
+    };
+    if (playerScore > cpuScore) {
+        console.log('PLAYER WINS GAME')
+    } else {
+        console.log('CPU WINS GAME')
+    }
 }
 game()
+
+console.log('ME:' + playerScore)
+console.log('CPU:' + cpuScore)
+
+
 
 //console.log('CPU SCORE: ' + cpuScore)
 //console.log('PLAYER SCORE: ' + playerScore)
