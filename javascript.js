@@ -14,7 +14,7 @@ function getComputerChoice() {
 
 
 function game() {
-    let player = getComputerChoice();
+    let player = prompt();
     let computer = getComputerChoice();
     playerChoices = ['PLAYER: ' + player,'CPU: ' + computer];
     
