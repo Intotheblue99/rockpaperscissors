@@ -5,16 +5,13 @@ let cpuScore = 0
 let round = ''
 let gameWinner = ''
 
-
-
 function getComputerChoice() {
     let comCho = Math.floor(Math.random() * selection.length)
     return selection[comCho]
 }
 
-
 function game() {
-    let player = prompt();
+    let player = prompt('CHOOSE: rock, paper, scissors').toLowerCase();
     let computer = getComputerChoice();
     playerChoices = ['PLAYER: ' + player,'CPU: ' + computer];
     
