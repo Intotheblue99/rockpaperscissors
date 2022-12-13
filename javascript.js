@@ -16,7 +16,7 @@ function getComputerChoice() {
 function game() {
     let player = getComputerChoice();
     let computer = getComputerChoice();
-    playerChoices = [player,computer];
+    playerChoices = ['PLAYER: ' + player,'CPU: ' + computer];
     
     if (player === 'rock' && computer === 'paper') {
         cpuScore++
