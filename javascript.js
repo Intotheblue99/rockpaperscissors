@@ -49,6 +49,7 @@ function game() {
     } if (player === 'scissors' && computer === 'scissors') {
         round = 'DRAW: scissors & scissors'
     }
+    console.log(playerChoices)
     console.log(round)
 }
 
@@ -58,6 +59,8 @@ function playRound() {
     };
     if (playerScore > cpuScore) {
         gameWinner = 'PLAYER WINS GAME'
+    } else if (playerScore === cpuScore) {
+        gameWinner = 'DRAW, NO ONE WINS GAME'
     } else {
         gameWinner = 'CPU WINS GAME'
     }
@@ -65,15 +68,5 @@ function playRound() {
 playRound()
 
 
-console.log(playerChoices)
 console.log('ME:' + playerScore, 'CPU:' + cpuScore)
 console.log(gameWinner)
-
-
-
-
-//console.log('CPU SCORE: ' + cpuScore)
-//console.log('PLAYER SCORE: ' + playerScore)
-
-//if (cpuWin === true) {
-//   cpuWin += 1 
