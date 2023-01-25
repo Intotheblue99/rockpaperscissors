@@ -11,7 +11,7 @@ function getComputerChoice() {
 }
 
 function game() {
-    let player = prompt('CHOOSE: rock, paper, scissors').toLowerCase();
+    //let player = prompt('CHOOSE: rock, paper, scissors').toLowerCase();
     let computer = getComputerChoice();
     playerChoices = ['PLAYER: ' + player,'CPU: ' + computer];
     
@@ -51,9 +51,9 @@ function game() {
 }
 
 function playRound() {
-    for (i = 0; i < 5; i++) {
-        game(i)
-    };
+    // for (i = 0; i < 5; i++) {
+    //    game(i)
+    // };
     if (playerScore > cpuScore) {
         gameWinner = 'PLAYER WINS GAME'
     } else if (playerScore === cpuScore) {
@@ -65,5 +65,6 @@ function playRound() {
 playRound()
 
 
-console.log('ME:' + playerScore, 'CPU:' + cpuScore)
+console.log('PLAYER:' + playerScore, 'CPU:' + cpuScore)
 console.log(gameWinner)
+

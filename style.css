@@ -1,0 +1,11 @@
+.selections {
+color: red;
+background-color: black;
+border: greenyellow;
+padding: 15px;
+display: flex;
+justify-content: center;
+flex-direction: row;
+font-size: 20px;
+font-weight: bold;
+}
