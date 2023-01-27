@@ -13,6 +13,8 @@ let roundWinnerEl = document.querySelector('.rnd-winner');
 let gameWinnerEl = document.querySelector('.game-winner');
 let myScore = document.querySelector('.player-score');
 let cpuScore = document.querySelector('.cpu-score');
+let playerEl = document.querySelector('.plcard');
+let cpuEL = document.querySelector('.cpucard');
 
 
 function getComputerChoice() {
@@ -35,6 +37,7 @@ function getPlayerChoice(index) {
 function game() {
     // let player = getPlayerChoice();
     let computer = getComputerChoice();
+    playerChoices = [player,computer]
     
     playerChoices = ['PLAYER: ' + player,'CPU: ' + computer];
     roundCount++
@@ -66,7 +69,11 @@ function game() {
         round = 'DRAW: scissors & scissors'
     }
     
-    roundEl.textContent= roundCount;
+    roundEl.textContent= 'ROUND: ' + roundCount;
+    myScore.textContent= 'player score: ' + myPoint;
+    cpuScore.textContent= 'cpu-score: ' + cpuPoint;
+    playerEl.textContent= playerChoices;
+    //cpuEL.textContent= computer;
 
     console.log(playerChoices)
     console.log(round)
@@ -76,9 +83,10 @@ function game() {
 
 
 function playRound() {
-    //   for (i = 0; i < 5; i++) {
-    //      playRound(i)
-    //   };
+    // cpuEL.textContent= 'player'
+    //    for (i = 0; i < playerChoices.length; i++) {
+    //       cpuEL.textContent = playerChoices[i] };
+       
     //game();
     if (myPoint > cpuPoint) {
         gameWinner = 'PLAYER WINS GAME'
