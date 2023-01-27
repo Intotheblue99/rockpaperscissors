@@ -1,12 +1,18 @@
 let selection = ['rock', 'paper', 'scissors'];
 let playerChoices = [];
-let playerScore = 0;
-let cpuScore = 0;
+let roundCount = 0
+let myPoint = 0;
+let cpuPoint = 0;
 let round = '';
 let gameWinner = '';
 let player = getPlayerChoice();
-
 const buttons = document.querySelectorAll('[data-choice]');
+
+let roundEl = document.querySelector('.round');
+let roundWinnerEl = document.querySelector('.rnd-winner');
+let gameWinnerEl = document.querySelector('.game-winner');
+let myScore = document.querySelector('.player-score');
+let cpuScore = document.querySelector('.cpu-score');
 
 
 function getComputerChoice() {
@@ -22,41 +28,36 @@ function getPlayerChoice(index) {
     } if (index === '2') {
         player= 'scissors';
     }
-   //console.log(player)
-
   };
 
   
 
 function game() {
-    let computer = getComputerChoice();
     // let player = getPlayerChoice();
+    let computer = getComputerChoice();
+    
     playerChoices = ['PLAYER: ' + player,'CPU: ' + computer];
+    roundCount++
+    
     
     if (player === 'rock' && computer === 'paper') {
-        cpuScore++
+        cpuPoint++
         round = 'you lose, paper covers rock';
-        
     }  if (player === 'paper' && computer === 'scissors') {
-        cpuScore++
+        cpuPoint++
         round = 'you lose, scissors cuts paper';
-        
     } if ( player === 'scissors' && computer === 'rock') {
-        cpuScore++
+        cpuPoint++
         round = 'you lose, rock crushes scissors';
-        
     } if (player === 'rock' && computer === 'scissors') {
-        playerScore++
+        myPoint++
         round = 'YOU WIN! rock crushes scissors';
-        
     } if (player === 'paper' && computer === 'rock') {
-        playerScore++
+        myPoint++
         round = 'YOU WIN! paper covers rock';
-        
     } if (player === 'scissors' && computer === 'paper') {
-        playerScore++
+        myPoint++
         round = 'YOU WIN! scissors cuts paper';
-        
     } if (player === 'rock' && computer === 'rock') {
         round = 'DRAW: rock & rock'
     } if (player === 'paper' && computer === 'paper') {
@@ -64,29 +65,32 @@ function game() {
     } if (player === 'scissors' && computer === 'scissors') {
         round = 'DRAW: scissors & scissors'
     }
+    
+    roundEl.textContent= roundCount;
+
     console.log(playerChoices)
     console.log(round)
+    playRound();
 }
 
 
 
 function playRound() {
-    //  for (i = 0; i < 5; i++) {
-    //     game(i)
-    //  };
-    game();
-    if (playerScore > cpuScore) {
+    //   for (i = 0; i < 5; i++) {
+    //      playRound(i)
+    //   };
+    //game();
+    if (myPoint > cpuPoint) {
         gameWinner = 'PLAYER WINS GAME'
-    } else if (playerScore === cpuScore) {
+    } else if (myPoint === cpuPoint) {
         gameWinner = 'DRAW, NO ONE WINS GAME'
     } else {
         gameWinner = 'CPU WINS GAME'
     }
 };
 
-buttons.forEach(button => button.addEventListener('click', playRound));
+buttons.forEach(button => button.addEventListener('click', game));
 
-console.log('PLAYER:' + playerScore, 'CPU:' + cpuScore)
-console.log(gameWinner)
+
 
 
