@@ -12,8 +12,8 @@
 <div class="banner">Rock Paper Scissors</div>
 
 <div class="selections">
-    <div>PLAYER:</div>
-    <div>CPU:</div>
+    <div id="plcard">PLAYER:</div>
+    <div id="cpucard">CPU:</div>
 </div>
 
 <div class="stats">
@@ -25,10 +25,11 @@
 </div>
 
 <div class="options">
-    <div><button class="rock">ROCK</button></div>
-    <div><button class="paper">PAPER</button></div>
-    <div><button class="scissors">SCISSORS</button></div>
+    <button data-choice="rock" onclick=" getPlayerChoice('0')">ROCK</button>
+    <button data-choice="paper" onclick=" getPlayerChoice('1')">PAPER</button>
+    <button data-choice="scissors" onclick=" getPlayerChoice('2')">SCISSORS</button>
 </div>
+
 
 <script src="javascript.js"></script>
 </body>

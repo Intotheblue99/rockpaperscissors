@@ -1,18 +1,36 @@
-let selection = ['rock', 'paper', 'scissors']
-let playerChoices = []
-let playerScore = 0
-let cpuScore = 0
-let round = ''
-let gameWinner = ''
+let selection = ['rock', 'paper', 'scissors'];
+let playerChoices = [];
+let playerScore = 0;
+let cpuScore = 0;
+let round = '';
+let gameWinner = '';
+let player = getPlayerChoice();
+
+const buttons = document.querySelectorAll('[data-choice]');
+
 
 function getComputerChoice() {
     let comCho = Math.floor(Math.random() * selection.length)
     return selection[comCho]
-}
+};
+
+function getPlayerChoice(index) {
+    if (index === '0') {
+        player= 'rock';
+    } if (index === '1') {
+        player= 'paper';
+    } if (index === '2') {
+        player= 'scissors';
+    }
+   //console.log(player)
+
+  };
+
+  
 
 function game() {
-    //let player = prompt('CHOOSE: rock, paper, scissors').toLowerCase();
     let computer = getComputerChoice();
+    // let player = getPlayerChoice();
     playerChoices = ['PLAYER: ' + player,'CPU: ' + computer];
     
     if (player === 'rock' && computer === 'paper') {
@@ -50,10 +68,13 @@ function game() {
     console.log(round)
 }
 
+
+
 function playRound() {
-    // for (i = 0; i < 5; i++) {
-    //    game(i)
-    // };
+    //  for (i = 0; i < 5; i++) {
+    //     game(i)
+    //  };
+    game();
     if (playerScore > cpuScore) {
         gameWinner = 'PLAYER WINS GAME'
     } else if (playerScore === cpuScore) {
@@ -61,10 +82,11 @@ function playRound() {
     } else {
         gameWinner = 'CPU WINS GAME'
     }
-}
-playRound()
+};
 
+buttons.forEach(button => button.addEventListener('click', playRound));
 
 console.log('PLAYER:' + playerScore, 'CPU:' + cpuScore)
 console.log(gameWinner)
+
 
