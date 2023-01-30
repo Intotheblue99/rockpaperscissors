@@ -72,7 +72,7 @@ function game() {
     playerEl.textContent= 'PLAYER:   ' + player;
     cpuEL.textContent= 'CPU:   ' + computer;
     roundWinnerEl.textContent= round;
-    gameWinnerEl.textContent = '--';
+    gameWinnerEl.textContent = '';
 
     playRound();
 }
