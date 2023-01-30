@@ -4,8 +4,8 @@ let roundCount = 0
 let myPoint = 0;
 let cpuPoint = 0;
 let round = '';
-let gameWinner = '';
-let player = getPlayerChoice();
+let gameWinner;
+let player;
 const buttons = document.querySelectorAll('[data-choice]');
 
 let roundEl = document.querySelector('.round');
@@ -35,13 +35,10 @@ function getPlayerChoice(index) {
   
 
 function game() {
-    // let player = getPlayerChoice();
     let computer = getComputerChoice();
     playerChoices = [player,computer]
     
-    playerChoices = ['PLAYER: ' + player,'CPU: ' + computer];
     roundCount++
-    
     
     if (player === 'rock' && computer === 'paper') {
         cpuPoint++
@@ -72,30 +69,35 @@ function game() {
     roundEl.textContent= 'ROUND: ' + roundCount;
     myScore.textContent= 'player score: ' + myPoint;
     cpuScore.textContent= 'cpu-score: ' + cpuPoint;
-    playerEl.textContent= playerChoices;
-    //cpuEL.textContent= computer;
+    playerEl.textContent= 'PLAYER:   ' + player;
+    cpuEL.textContent= 'CPU:   ' + computer;
+    roundWinnerEl.textContent= round;
+    gameWinnerEl.textContent = '--';
 
-    console.log(playerChoices)
-    console.log(round)
     playRound();
 }
 
 
 
 function playRound() {
-    // cpuEL.textContent= 'player'
-    //    for (i = 0; i < playerChoices.length; i++) {
-    //       cpuEL.textContent = playerChoices[i] };
-       
-    //game();
-    if (myPoint > cpuPoint) {
-        gameWinner = 'PLAYER WINS GAME'
-    } else if (myPoint === cpuPoint) {
-        gameWinner = 'DRAW, NO ONE WINS GAME'
-    } else {
-        gameWinner = 'CPU WINS GAME'
+    if (roundCount === 5) {
+        if (myPoint > cpuPoint) {
+            gameWinner = 'PLAYER WINS GAME'
+        } else if (myPoint === cpuPoint) {
+            gameWinner = 'DRAW, NO ONE WINS GAME'
+        } else {
+            gameWinner = 'CPU WINS GAME'
+        } 
+        gameWinnerEl.textContent = gameWinner
+        reset();
     }
 };
+
+function reset() {
+    roundCount = 0;
+    myPoint = 0;
+    cpuPoint = 0;
+}
 
 buttons.forEach(button => button.addEventListener('click', game));
 
